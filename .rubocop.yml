@@ -22,6 +22,7 @@ Layout/LineLength:
 Metrics/AbcSize:
   Exclude:
     - test/helpers/*
+    - test/unit/hash_lookup_with_proxy_test.rb
 
 Metrics/BlockLength:
   Exclude:

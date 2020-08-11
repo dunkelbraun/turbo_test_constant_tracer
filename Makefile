@@ -41,4 +41,4 @@ test_27: test-27
 # Runs tests against a specific ruby version
 test-%:
 	$(with_given_ruby) bundle install
-	$(with_given_ruby) bundle exec rake
+	$(with_given_ruby) bundle exec rake compile test

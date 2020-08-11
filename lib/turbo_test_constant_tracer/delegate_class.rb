@@ -33,8 +33,8 @@ def TurboTestDelegateClass(superclass)
 
     public_instance_methods.each do |method|
       if (superclass == String && TurboTest::ConstantTracer::Klass::STRING_METHODS[method]) ||
-        (superclass.ancestors.include?(Enumerable) &&
-          TurboTest::ConstantTracer::Klass::ENUMERABLE_METHODS[method])
+         (superclass.ancestors.include?(Enumerable) &&
+           TurboTest::ConstantTracer::Klass::ENUMERABLE_METHODS[method])
         klass.send(
           :define_method,
           method,

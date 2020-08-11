@@ -2,6 +2,7 @@
 
 require "bundler/gem_tasks"
 require "rake/testtask"
+require "rake/extensiontask"
 
 ENV["TESTOPTS"] = "#{ENV['TESTOPTS']} --verbose"
 
@@ -12,6 +13,10 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task default: :test
+
+Rake::ExtensionTask.new "hash_lookup_with_proxy" do |ext|
+  ext.lib_dir = "lib/ext"
+end
 
 if ENV["CI"]
   require "coveralls/rake/task"

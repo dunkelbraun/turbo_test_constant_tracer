@@ -25,7 +25,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "minitest", "~> 5.14.1"
+  spec.add_development_dependency "rake-compiler"
 
   spec.add_dependency "binding_of_caller"
   spec.add_dependency "turbo_test_events"
+
+  spec.extensions = %w[ext/hash_lookup_with_proxy/extconf.rb]
 end

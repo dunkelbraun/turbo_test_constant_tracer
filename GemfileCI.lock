@@ -29,6 +29,8 @@ GEM
       ast (~> 2.4.1)
     rainbow (3.0.0)
     rake (13.0.1)
+    rake-compiler (1.1.1)
+      rake
     regexp_parser (1.7.1)
     rexml (3.2.4)
     rubocop (0.89.1)
@@ -67,6 +69,7 @@ DEPENDENCIES
   minitest (~> 5.14.1)
   mocha
   rake (~> 13.0)
+  rake-compiler
   rubocop
   simplecov (~> 0.16.1)
   turbo_test_constant_tracer!
