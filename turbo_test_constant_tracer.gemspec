@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "binding_of_caller"
   spec.add_dependency "turbo_test_events"
 
-  spec.extensions = %w[ext/hash_lookup_with_proxy/extconf.rb]
+  spec.extensions = %w[ext/hash_lookup_with_proxy_ext/extconf.rb]
 end

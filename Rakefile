@@ -14,8 +14,8 @@ end
 
 task default: :test
 
-Rake::ExtensionTask.new "hash_lookup_with_proxy" do |ext|
-  ext.lib_dir = "lib/ext"
+Rake::ExtensionTask.new "hash_lookup_with_proxy_ext" do |ext|
+  ext.lib_dir = "lib/turbo_test_constant_tracer"
 end
 
 if ENV["CI"]

@@ -21,7 +21,7 @@ VALUE add_assign_method(VALUE self) {
   return Qtrue;
 }
 
-void Init_hash_lookup_with_proxy()
+void Init_hash_lookup_with_proxy_ext()
 {
   turbo_test = rb_define_module("TurboTest");
   turbo_test_constant_tracer = rb_define_module_under(turbo_test, "ConstantTracer");
