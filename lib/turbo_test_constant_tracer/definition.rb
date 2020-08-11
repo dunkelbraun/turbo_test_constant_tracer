@@ -4,7 +4,7 @@ require "binding_of_caller"
 require_relative "definition/templates"
 
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     module Definition
       class << self
         include DefinitionTemplates

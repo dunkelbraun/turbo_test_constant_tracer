@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in turbo_test_method_call_tracer_proxy.gemspec
+# Specify your gem's dependencies in turbo_test_constant_tracer.gemspec
 gemspec
 
 eval_gemfile(File.expand_path('Gemfile.common', __dir__))

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     class Constructor
       def initialize(original_class)
         @klass = original_class

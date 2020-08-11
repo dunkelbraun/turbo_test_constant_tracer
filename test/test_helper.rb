@@ -11,7 +11,7 @@ if RUBY_VERSION >= "2.7"
   end
 end
 
-require "turbo_test_method_call_tracer_proxy"
+require "turbo_test_constant_tracer"
 require "minitest/autorun"
 require "mocha/minitest"
 require "byebug"
@@ -36,7 +36,7 @@ class Minitest::Spec
   end
 
   def proxy_klass_desdendants
-    ObjectSpace.each_object(TurboTest::MethodCallTracerProxy::ProxyKlass).each_with_object([]) do |klass, memo|
+    ObjectSpace.each_object(TurboTest::ConstantTracer::ProxyKlass).each_with_object([]) do |klass, memo|
       next if klass.singleton_class?
 
       memo.unshift klass unless klass == self

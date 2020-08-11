@@ -3,7 +3,7 @@
 require "singleton"
 
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     class EventPublisher
       include Singleton
 

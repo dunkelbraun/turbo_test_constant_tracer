@@ -13,11 +13,11 @@ describe "Proxy" do
     self.class.send(:remove_const, "A_STRING") if self.class.const_defined?("A_STRING")
   end
 
-  let(:subject) { TurboTest::MethodCallTracerProxy::Definition }
+  let(:subject) { TurboTest::ConstantTracer::Definition }
 
   test "define a proxy object" do
     proxy_object = subject.delegator_proxy(self.class, "A_STRING", self.class.const_get("A_STRING"), __FILE__)
-    assert_equal TurboTest::MethodCallTracerProxy::ProxyKlass::String, proxy_object.class
+    assert_equal TurboTest::ConstantTracer::ProxyKlass::String, proxy_object.class
     assert_equal "a_string", proxy_object.to_s
   end
 
@@ -45,7 +45,7 @@ describe "Proxy" do
     assert_internal_proxy proxy_object
 
     TurboTest::EventRegistry["proxy_object_method_call"].subscribe(event_subscriber)
-    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
+    TurboTest::ConstantTracer::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
 
     proxy_object.to_s
@@ -63,7 +63,7 @@ describe "Proxy" do
     assert_internal_proxy proxy_object
 
     TurboTest::EventRegistry["proxy_object_method_call"].subscribe(event_subscriber)
-    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
+    TurboTest::ConstantTracer::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
 
     proxy_object.to_s

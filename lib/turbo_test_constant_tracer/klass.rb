@@ -5,7 +5,7 @@ require "binding_of_caller"
 require_relative "delegator"
 require_relative "delegate_class"
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     class Klass
       STRING_METHODS = {
         scan: true, gsub: true, gsub!: true, sub: true, sub!: true, "=~": 1
@@ -21,7 +21,7 @@ module TurboTest
       }.freeze
 
       def self.define(original_class, name)
-        return ::TurboTest::MethodCallTracerProxy::Regexp if original_class == ::Regexp
+        return ::TurboTest::ConstantTracer::Regexp if original_class == ::Regexp
 
         klass = Class.new(TurboTestDelegateClass(original_class)) do
           include InstanceMethods
@@ -50,7 +50,7 @@ module TurboTest
 
         def __getobj__
           result = super
-          TurboTest::MethodCallTracerProxy::EventPublisher.publish(
+          TurboTest::ConstantTracer::EventPublisher.publish(
             turbo_test_name, turbo_test_path
           )
           result

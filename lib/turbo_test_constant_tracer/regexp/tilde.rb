@@ -4,10 +4,10 @@ require "binding_of_caller"
 require "English"
 
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     class Regexp < TurboTestDelegateClass(::Regexp)
-      include ::TurboTest::MethodCallTracerProxy::Klass::InstanceMethods
-      extend  ::TurboTest::MethodCallTracerProxy::Klass::ClassMethods
+      include ::TurboTest::ConstantTracer::Klass::InstanceMethods
+      extend  ::TurboTest::ConstantTracer::Klass::ClassMethods
 
       def ~
         caller_binding = binding.of_caller(1)
@@ -20,4 +20,4 @@ module TurboTest
   end
 end
 
-TurboTest::MethodCallTracerProxy::Regexp.turbo_test_proxied_class = ::Regexp
+TurboTest::ConstantTracer::Regexp.turbo_test_proxied_class = ::Regexp

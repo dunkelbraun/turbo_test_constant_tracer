@@ -4,7 +4,7 @@ require "binding_of_caller"
 require "English"
 
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     module DefinitionTemplates
       private
 
@@ -25,7 +25,7 @@ module TurboTest
             caller_binding = binding.of_caller(1)
             caller_binding.local_variable_set(:_turbotest_tilde, $~)
             caller_binding.eval("$~=_turbotest_tilde")
-            ::TurboTest::MethodCallTracerProxy::EventPublisher.publish("#{name}", "#{location}")
+            ::TurboTest::ConstantTracer::EventPublisher.publish("#{name}", "#{location}")
             result
           end
         RUBY
@@ -58,7 +58,7 @@ module TurboTest
           aliased_name = "__turbo_test_\#\{_mod_method\}"
           define_method _mod_method do |*args, &block|
             result = __send__ aliased_name, *args, &block
-            ::TurboTest::MethodCallTracerProxy::EventPublisher.publish("#{klass}::#{name}", "#{location}")
+            ::TurboTest::ConstantTracer::EventPublisher.publish("#{klass}::#{name}", "#{location}")
             result
           end
         RUBY
@@ -80,7 +80,7 @@ module TurboTest
               end
               __send__(aliased_name, *args, &(my_proc))
             end
-            ::TurboTest::MethodCallTracerProxy::EventPublisher.publish("#{name}", "#{location}")
+            ::TurboTest::ConstantTracer::EventPublisher.publish("#{name}", "#{location}")
             res
           end
         RUBY

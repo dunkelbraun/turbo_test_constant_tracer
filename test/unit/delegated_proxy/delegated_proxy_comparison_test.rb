@@ -8,7 +8,7 @@ describe "Delegated Proxy comparison" do
   describe "triggers an event" do
     before do
       TestClass.const_set(:CONSTANT, %w[one])
-      TurboTest::MethodCallTracerProxy::Definition.delegator_proxy(TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb")
+      TurboTest::ConstantTracer::Definition.delegator_proxy(TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb")
     end
 
     test "comparing an array to a delegated proxy" do

@@ -153,7 +153,7 @@ describe "Delegated Proxy String" do
       assert_equal "2", Regexp.last_match(1)
       assert_equal 1, event_subscriber.events.length
 
-      TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
+      TurboTest::ConstantTracer::EventPublisher.reset_call_log
 
       assert_nil proxy_string =~ /(\d\d)/
       assert_equal 2, event_subscriber.events.length

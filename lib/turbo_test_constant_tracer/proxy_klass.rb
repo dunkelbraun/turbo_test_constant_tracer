@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TurboTest
-  module MethodCallTracerProxy
+  module ConstantTracer
     module ProxyKlass
       def self.proxied_objects
         @proxied_objects ||= {}

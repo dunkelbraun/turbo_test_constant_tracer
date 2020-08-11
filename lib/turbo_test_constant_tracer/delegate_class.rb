@@ -32,9 +32,9 @@ def TurboTestDelegateClass(superclass)
     end
 
     public_instance_methods.each do |method|
-      if (superclass == String && TurboTest::MethodCallTracerProxy::Klass::STRING_METHODS[method]) ||
+      if (superclass == String && TurboTest::ConstantTracer::Klass::STRING_METHODS[method]) ||
         (superclass.ancestors.include?(Enumerable) &&
-          TurboTest::MethodCallTracerProxy::Klass::ENUMERABLE_METHODS[method])
+          TurboTest::ConstantTracer::Klass::ENUMERABLE_METHODS[method])
         klass.send(
           :define_method,
           method,
@@ -55,7 +55,7 @@ def TurboTestDelegateClass(superclass)
     end
 
     if superclass == Regexp || superclass.ancestors.include?(::Regexp)
-      TurboTest::MethodCallTracerProxy::Klass::REGEXP_METHODS.each_key do |key|
+      TurboTest::ConstantTracer::Klass::REGEXP_METHODS.each_key do |key|
         klass.send(:remove_method, key) if klass.method_defined?(key)
         klass.send(:define_method, key, Delegator.delegating_block_with_binding_for_ruby(key))
       end

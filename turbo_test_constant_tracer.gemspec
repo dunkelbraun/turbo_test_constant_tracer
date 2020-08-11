@@ -1,13 +1,13 @@
-require_relative 'lib/turbo_test_method_call_tracer_proxy/version'
+require_relative 'lib/turbo_test_constant_tracer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "turbo_test_method_call_tracer_proxy"
-  spec.version       = TurboTestMethodCallTracerProxy::VERSION
+  spec.name          = "turbo_test_constant_tracer"
+  spec.version       = TurboTestConstantTracer::VERSION
   spec.authors       = ["Marcos Essindi"]
   spec.email         = ["marcessindi@icloud.com"]
 
   spec.summary       = "Summary"
-  spec.homepage      = "https://github.com/dunkelbraun/turbo_test_method_call_tracer_proxy"
+  spec.homepage      = "https://github.com/dunkelbraun/turbo_test_constant_tracer"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 

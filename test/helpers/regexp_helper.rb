@@ -2,14 +2,14 @@
 
 module RegexpHelper
   def create_proxy_regexp
-    proxy_regexp = TurboTest::MethodCallTracerProxy::Definition.delegator_proxy(TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb")
-    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
+    proxy_regexp = TurboTest::ConstantTracer::Definition.delegator_proxy(TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb")
+    TurboTest::ConstantTracer::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     proxy_regexp
   end
 
   def assert_equal_tilde_reg_string(regexp, string, events = false)
-    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
+    TurboTest::ConstantTracer::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     res = regexp =~ string
     assert_equal 2, res
@@ -19,7 +19,7 @@ module RegexpHelper
   end
 
   def assert_match(regexp, _str, events = false)
-    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
+    TurboTest::ConstantTracer::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     match = regexp.match("abc")
     assert_equal "a", match[1]

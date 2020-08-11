@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbo_test_method_call_tracer_proxy (0.1.0)
+    turbo_test_constant_tracer (0.1.0)
       binding_of_caller
       turbo_test_events
 
@@ -54,7 +54,7 @@ DEPENDENCIES
   rake (~> 13.0)
   rubocop
   simplecov (~> 0.18.5)
-  turbo_test_method_call_tracer_proxy!
+  turbo_test_constant_tracer!
 
 BUNDLED WITH
    2.1.4
