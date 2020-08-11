@@ -66,3 +66,4 @@ build-iPhoneSimulator/
 .byebug_history
 
 lib/ext/
+lib/hash_lookup_with_proxy_ext*

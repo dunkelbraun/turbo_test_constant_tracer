@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "hash_lookup_with_proxy_ext"
+require_relative "./../hash_lookup_with_proxy_ext"
 
 module TurboTest
   module ConstantTracer
