@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbo_test_constant_tracer (0.1.11)
+    turbo_test_constant_tracer (0.1.12)
       binding_of_caller
       turbo_test_events
 
