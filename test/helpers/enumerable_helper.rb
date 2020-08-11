@@ -5,7 +5,7 @@ module EnumerableHelper
     enumerable_proxy = TurboTest::MethodCallTracerProxy::Definition.delegator_proxy(
       TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb"
     )
-    TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     enumerable_proxy
   end
@@ -14,7 +14,7 @@ module EnumerableHelper
     enumerable_proxy = TurboTest::MethodCallTracerProxy::Definition.internal_proxy(
       TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb"
     )
-    TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     enumerable_proxy
   end

@@ -50,7 +50,7 @@ module TurboTest
 
         def __getobj__
           result = super
-          TurboTest::MethodCallTracerProxy::EventPublisher.instance.publish(
+          TurboTest::MethodCallTracerProxy::EventPublisher.publish(
             turbo_test_name, turbo_test_path
           )
           result

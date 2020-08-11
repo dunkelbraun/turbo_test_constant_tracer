@@ -192,7 +192,7 @@ describe "Constructor" do
       proxy_string.turbo_test_name = "MY_NAME"
       proxy_string.turbo_test_path = __FILE__
 
-      TurboTest::MethodCallTracerProxy::EventPublisher.instance.expects(:publish).with("MY_NAME", __FILE__)
+      TurboTest::MethodCallTracerProxy::EventPublisher.expects(:publish).with("MY_NAME", __FILE__)
       proxy_string.to_s
     end
   end

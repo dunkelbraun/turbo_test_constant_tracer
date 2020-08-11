@@ -12,6 +12,15 @@ module TurboTest
       attr_reader :enabled
 
       class << self
+        extend Forwardable
+        def_delegators :instance,
+                       :reset_call_log,
+                       :publish_all_events!,
+                       :publish_events_once!,
+                       :publish
+
+        private
+
         def instance
           @instance || Mutex.new.synchronize { @instance ||= new }
         end

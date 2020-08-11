@@ -45,7 +45,7 @@ describe "Proxy" do
     assert_internal_proxy proxy_object
 
     TurboTest::EventRegistry["proxy_object_method_call"].subscribe(event_subscriber)
-    TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
 
     proxy_object.to_s
@@ -63,7 +63,7 @@ describe "Proxy" do
     assert_internal_proxy proxy_object
 
     TurboTest::EventRegistry["proxy_object_method_call"].subscribe(event_subscriber)
-    TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
 
     proxy_object.to_s

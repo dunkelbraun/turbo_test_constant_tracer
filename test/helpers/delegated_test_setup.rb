@@ -6,7 +6,7 @@ module DelegatedTestSetup
       before do
         define_class("TestClass")
         TurboTest::EventRegistry["proxy_object_method_call"].subscribe(event_subscriber)
-        TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+        TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
         event_subscriber.instance_variable_set(:@events, nil)
       end
 

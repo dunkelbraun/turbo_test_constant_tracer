@@ -3,14 +3,14 @@
 module StringHelper
   def create_internal_proxy_string
     proxy_string = TurboTest::MethodCallTracerProxy::Definition.internal_proxy(TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb")
-    TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     proxy_string
   end
 
   def create_delegated_proxy_string
     proxy_string = TurboTest::MethodCallTracerProxy::Definition.delegator_proxy(TestClass, "CONSTANT", TestClass::CONSTANT, "a/path.rb")
-    TurboTest::MethodCallTracerProxy::EventPublisher.instance.reset_call_log
+    TurboTest::MethodCallTracerProxy::EventPublisher.reset_call_log
     event_subscriber.instance_variable_set(:@events, nil)
     proxy_string
   end
