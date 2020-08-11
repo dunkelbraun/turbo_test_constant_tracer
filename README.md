@@ -1,3 +1,7 @@
+![Tests](https://github.com/dunkelbraun/turbo_test_constant_tracer/workflows/Tests/badge.svg?branch=main)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6f848135bd1e329faba5/maintainability)](https://codeclimate.com/github/dunkelbraun/turbo_test_constant_tracer/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/dunkelbraun/turbo_test_constant_tracer/badge.svg?branch=main)](https://coveralls.io/github/dunkelbraun/turbo_test_constant_tracer?branch=main)
+
 # TurboTestConstantTracer
 
 Description @todo.
