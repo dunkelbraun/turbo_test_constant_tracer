@@ -9,7 +9,7 @@ AllCops:
     - "**/*.gemfile"
     - bin/*
     - "*.gemspec"
-    - lib/turbo_test_method_call_tracer_proxy/delegate_class.rb
+    - lib/turbo_test_constant_tracer/delegate_class.rb
     - test/unit/delegate_class_test.rb
 
 Layout/LineLength:
