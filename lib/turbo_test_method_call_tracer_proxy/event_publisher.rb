@@ -13,14 +13,23 @@ module TurboTest
 
       def initialize
         @call_log = {}
+        @log_all_events = false
       end
 
       def reset_call_log
         @call_log = {}
       end
 
+      def publish_all_events!
+        @log_all_events = true
+      end
+
+      def publish_events_once!
+        @log_all_events = false
+      end
+
       def publish(name, location)
-        return unless @call_log[name].nil?
+        return unless @call_log[name].nil? || @log_all_events == true
 
         TurboTest::EventRegistry[EVENT].publish(name, location)
         @call_log[name] = true
