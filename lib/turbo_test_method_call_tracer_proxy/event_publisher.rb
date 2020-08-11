@@ -11,6 +11,12 @@ module TurboTest
 
       attr_reader :enabled
 
+      class << self
+        def instance
+          @instance || Mutex.new.synchronize { @instance ||= new }
+        end
+      end
+
       def initialize
         @call_log = {}
         @log_all_events = false
