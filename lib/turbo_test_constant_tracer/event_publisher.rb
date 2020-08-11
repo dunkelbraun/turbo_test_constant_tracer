@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "singleton"
+require "concurrent-ruby"
 
 module TurboTest
   module ConstantTracer
@@ -27,12 +28,12 @@ module TurboTest
       end
 
       def initialize
-        @call_log = {}
+        @call_log = Concurrent::Map.new
         @log_all_events = false
       end
 
       def reset_call_log
-        @call_log = {}
+        @call_log.clear
       end
 
       def publish_all_events!
