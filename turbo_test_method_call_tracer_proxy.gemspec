@@ -7,11 +7,9 @@ Gem::Specification.new do |spec|
   spec.email         = ["marcessindi@icloud.com"]
 
   spec.summary       = "Summary"
-  spec.homepage      = "http://example.com"
+  spec.homepage      = "https://github.com/dunkelbraun/turbo_test_method_call_tracer_proxy"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
